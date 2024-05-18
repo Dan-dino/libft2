@@ -6,14 +6,13 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:51:17 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/04/28 11:45:07 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/05/18 13:06:36 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
-void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
+void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
 	char	*d;
 	char	*s;
@@ -22,21 +21,10 @@ void	*ft_memcpy(void *restrict dst, const void *restrict src, size_t n)
 	s = (char *)src;
 	if (d == NULL || s == NULL)
 		return (NULL);
-	while (n)
+	n ++;
+	while (--n)
 	{
-		d[n] = s[n];
-		n--;
+		d[n - 1] = s[n - 1];
 	}
 	return (dst);
-}
-
-int	main(void)
-{
-	char	*str;
-	char	*str2;
-
-	str = "this is a string";
-	str2 = "idk what this is";
-	memcpy(str2, str, 3);
-	printf("%s/n", str2);
 }

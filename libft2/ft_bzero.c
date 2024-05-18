@@ -6,22 +6,28 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:40:15 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/04/24 09:47:18 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/05/18 13:14:37 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <string.h>
 
 void	ft_bzero(void *s, size_t n)
 {
-	size_t			i;
-	unsigned char	*a;
+	char	*a;
 
-	i = 0;
-	a = (unsigned char *)s;
-	while (i < n)
+	a = (char *)s;
+	n++;
+	while (--n)
 	{
-		a[i] = '\0';
-		i++;
+		a[n] = '\0';
 	}
+}
+
+int	main(void)
+{
+	char	str[] = "this is a string";
+
+	printf("%s\n", ft_bzero(str, 5));
 }
