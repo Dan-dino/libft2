@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 11:01:31 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/05/18 12:52:26 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/04/29 11:04:59 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strrchr(const char *s, int c)
 	i = ft_strlen(s);
 	while (s[i] != (char *) c)
 	{
-		if (s[i] == '\0')
+		if(s[i] == '\0')
 			return (NULL);
 		i--;
-	}
+	}	
 	return ((char *)s + i);
 }

@@ -6,11 +6,9 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/29 10:44:15 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/05/18 12:58:59 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/04/29 10:46:03 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_toupper(int c)
 {

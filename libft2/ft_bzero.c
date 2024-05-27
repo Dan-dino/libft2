@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:40:15 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/05/18 13:14:37 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/04/24 09:47:18 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,4 @@ void	ft_bzero(void *s, size_t n)
 	{
 		*a++ = '\0';
 	}
-}
-
-int	main(void)
-{
-	char	str[] = "this is a string";
-
-	printf("%s\n", ft_bzero(str, 5));
 }
