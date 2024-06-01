@@ -6,12 +6,11 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:51:17 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/04/28 11:45:07 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/01 17:27:22 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
-#include <string.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n)
 {
