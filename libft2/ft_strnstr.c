@@ -8,8 +8,8 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 	i = 0;
 	j = 0;
 	if (!needle || needle[0] == '\0')
-		return((char *)haystack);
-	while(haystack[i] != '\0' && i < n)
+		return ((char *)haystack);
+	while (haystack[i] != '\0' && i < n)
 	{
 		if (haystack[i] == needle[j])
 		{
@@ -24,12 +24,4 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 		i++;
 	}
 	return (NULL);
-}
-
-int main(void)
-{
-	const char	str[] = "this is a string";
-	const char	s[] = "a string";
-
-	printf("%s\n", ft_strnstr(str, s, 4));
 }

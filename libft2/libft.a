@@ -1,0 +1,842 @@
+!<arch>
+ft_atoi.c/      0           0     0     644     567       `
+#include "libft.h"
+
+int	ft_atoi(const char *str)
+{
+	size_t  i;
+    size_t  result;
+    int     sign;
+
+    i = 0;
+    result = 0;
+    sign = 1;
+    while (str[i] == 32 || str[i] == 9)
+        i++;
+    while (str[i] == 45 || str[i] == 43)
+    {
+        if (str[i] == 45)
+            sign *= -1;
+        i++;
+    }
+    while (str[i] >= 48 && str[i] <= 57 && str[i] != '\0')
+    {
+        result = (result * 10) + (str[i] - '0');
+        i++;
+    }
+    return (sign * result);
+}
+
+int main()
+{
+    char str[] = "      2  34rofi wsjef899";
+    printf("%d", ft_atoi(str));
+}
+ft_bzero.c/     0           0     0     644     1030      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 09:40:15 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/24 09:47:18 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include <string.h>
+
+void	ft_bzero(void *s, size_t n)
+{
+	char	*a;
+
+	a = (char *)s;
+	while (n--)
+	{
+		*a++ = '\0';
+	}
+}
+ft_calloc.c/    0           0     0     644     225       `
+#include "libft.h"
+
+void	*calloc(size_t num, size_t size)
+{
+	char	*s;
+	if (!num || !size)
+	{
+		num = 1;
+		size = 1;
+	}
+	s = malloc(sizeof (num * size) + 1);
+	if (!s)
+		return (NULL);
+	ft_bzero(s, (num * size));
+	return (s);
+}
+ft_isalnum.c/   0           0     0     644     1002      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 07:58:48 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/24 08:03:00 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_isalnum(int c)
+{
+	if (ft_isaplha(c) || ft_isdigit(c))
+		return (1);
+	return (0);
+}
+ft_isalpha.c/   0           0     0     644     1017      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isalpha.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/23 07:55:55 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/24 07:56:22 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_isaplha(int c)
+{
+	if ((c >= 65 && c <= 90) || (c >= 97 && c <= 122))
+		return (1);
+	return (0);
+}
+
+ft_isascii.c/   0           0     0     644     990       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 08:02:46 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/24 08:07:06 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_isascii(int c)
+{
+	if (c >= 0 && c <= 127)
+		return (1);
+	return (0);
+}
+ft_isdigit.c/   0           0     0     644     1364      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isdigit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 07:48:02 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/24 07:57:52 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_isdigit(int c)
+{
+	if ((c >= 48 && c <= 57))
+		return (1);
+	return (0);
+}
+#include <stdio.h>
+int main ()
+{
+	// if(ft_isdigit('2'))
+	// {
+	// 	printf("welcome back dana\n");
+	// }
+	// else
+	// 	printf("my bad\n");
+ #include <ctype.h>
+	if(isdigit("10"))
+	{
+		printf("original: welcome back dana\n");
+	}
+	else
+		printf("orignial: my bad\n");
+
+	if(ft_isdigit("10"))
+	{
+		printf("danas: welcome back dana\n");
+	}
+	else
+		printf("danas: my bad\n");	
+}	ft_isprint.c/   0           0     0     644     991       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 08:07:22 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/24 08:10:34 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+int	ft_isprint(int c)
+{
+	if (c >= 32 && c <= 126)
+		return (1);
+	return (0);
+}
+
+ft_memchr.c/    0           0     0     644     335       `
+#include "libft.h"
+
+void	*ft_memchr(const void *s, int c, size_t n)
+{
+	unsigned char	*str;
+
+	str = (unsigned char *)s;
+	while (n--)
+	{
+		if (*str++ == (unsigned char) c)
+			return ((void *) str);
+	}
+	return (NULL);
+}
+int main()
+{
+	unsigned char str[] = "this is a string";
+	char *b;
+
+	b = ft_memchr(str, 'a', 17);
+	printf("%s\n", b);
+}
+ft_memcmp.c/    0           0     0     644     297       `
+#include "libft.h"
+
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
+{
+	size_t	i;
+	unsigned char	*str1;
+	unsigned char	*str2;
+
+	str1 = (unsigned char *) s1;
+	str2 = (unsigned char *) s2;
+	i = -1;
+
+	while(--i < n)
+	{
+		if (str1[i] != str2[i])
+			return(str1[i] - str2[i]);
+	}
+	return (0);
+}
+
+ft_memcpy.c/    0           0     0     644     1213      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 09:51:17 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/28 11:45:07 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include <string.h>
+
+void	*ft_memcpy(void *dst, const void *src, size_t n)
+{
+	char	*d;
+	char	*s;
+
+	d = (char *)dst;
+	s = (char *)src;
+	while (n--)
+		*d++ = *s++;
+	return (dst);
+}
+
+int	main(void)
+{
+	char	str[17] = "this is a string";
+	char	str2 [4];
+
+	ft_memcpy(str2, str, 3);
+	printf("%s\n", str2);
+}
+
+
+ft_memmove.c/   0           0     0     644     1265      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/27 15:44:39 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/27 15:45:55 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+void	*ft_memmove(void *dst, const void *src, size_t len)
+{
+	char	*d;
+	char	*s;
+
+	d = (char *)dst;
+	s = (char *)src;
+	if (d < s)
+	{
+		while (len--)
+			*d++ = *s++;
+	}
+	else
+	{
+		while(len--)
+			d[len] = s[len];
+	}
+	return(dst);
+}
+
+int	main(void)
+{
+	char	str[] = "this is a string";
+	char	str2[] = "";
+
+	ft_memmove(str2, str, 17);
+	printf("%s\n", str2);
+}
+ft_memset.c/    0           0     0     644     1060      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 08:16:44 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/27 15:07:07 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+#include <string.h>
+
+void	*ft_memset(void *b, int c, size_t len)
+{
+	char	*a;
+
+	a = (char *)b;
+	while (len--)
+	{
+		*a++ = (char) c;
+	}
+	return (b);
+}
+ft_strchr.c/    0           0     0     644     1183      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/29 10:49:06 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/29 10:58:22 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] && s[i] != (char) c)
+		i++;
+	if (s[i] == (char) c)
+		return ((char *)s + i);
+	return (NULL);
+}
+
+int	main(void)
+{
+	char	str[] = "this is a string";
+	int	c = 'a';
+	printf("%s\n", ft_strchr(str, c));
+}
+ft_strdup.c/    0           0     0     644     222       `
+#include "libft.h"
+
+char	*strdup(const char *s)
+{
+	char	*str;
+	size_t		i;
+
+	i = -1;
+	str = malloc(sizeof (ft_strlen(s)) + 1);
+	if (!str)
+		return (NULL);
+	while (str[++i])
+		str[i] = s[i];
+	str[i] = '\0';
+	return (str);
+}
+ft_strjoin.c/   0           0     0     644     423       `
+#include "libft.h"
+
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	char	*str;
+
+	str = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (!str)
+		return (NULL);
+	ft_strlcpy(str, s1, ft_strlen(s1) + 1);
+	ft_strlcpy(str + ft_strlen(s1) + 1, s2, ft_strlen(s2) + 1);
+	return (str);	
+}
+
+// int	main(void)
+// {
+// 	char	s1[] = "this is";
+// 	char	s2[] = " a string";
+
+// 	printf("%s\n", ft_strjoin(s1,s2));
+// }
+ft_strlcat.c/   0           0     0     644     1314      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/29 10:21:26 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/29 10:43:03 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+{
+	size_t	i;
+	size_t	j;
+
+	i = ft_strlen(dst) + 1;
+	j = 0;
+	if (dstsize > 0)
+	{
+		while (j < dstsize && src[j] != '\0')
+		{
+			dst[i + j] = src[j];
+			j++;
+		}
+		dst[i + j] = '\0';
+	}
+	return (ft_strlen(src) + i);
+}
+
+int main(void)
+{
+	char str[] = "string";
+	char str2[] = "this is a ";
+
+	ft_strlcat(str2, str, 7);
+	printf("%s\n", str2);
+}
+
+ft_strlcpy.c/   0           0     0     644     1664      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/28 11:54:52 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/28 12:43:23 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+// size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+// {
+// 	size_t	i;
+
+// 	i = ft_strlen(src);
+// 	if (dstsize > 0)
+// 	{
+// 		dst[dstsize] = '\0';
+// 		dstsize--;
+// 		while (dstsize && src[dstsize] != '\0')
+// 		{
+// 			dst[dstsize] = src[dstsize];
+// 			dstsize--;
+// 		}
+// 	}
+// 	return (i);
+// }
+
+size_t	ft_strlcpy(char *restrict dst, const char *restrict src, size_t dstsize)
+{
+	size_t	i;
+	size_t	len;
+
+	i = -1;
+	len = ft_strlen(src);
+	if (dstsize > 0)
+	{
+		while (++i < dstsize && src[i] != '\0')
+			dst[i] = src[i];
+		dst[i] = '\0';
+	}
+	return (len);
+}
+
+// int	main(void)
+// {
+// 	char	dst[17] = "this is a string";
+// 	char	src[15] = "another string";
+
+// 	ft_strlcpy(dst, src, 9);
+// 	printf("%s", dst);
+// }
+ft_strlen.c/    0           0     0     644     1008      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/24 08:10:58 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/24 08:16:29 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i])
+		i++;
+	i--;
+	return (i);
+}
+ft_strncmp.c/   0           0     0     644     513       `
+#include "libft.h"
+#include <string.h>
+
+int ft_strncmp(const char *s1, const char *s2, size_t n)
+{
+    size_t			i;
+    unsigned char	*str1;
+    unsigned char	*str2;
+
+	i = 0;
+	str1 = (unsigned char *) s1;
+    str2 = (unsigned char *) s2;
+    if(n == 0)
+        return (0);
+    while((str1[i] == str2[i]) && (str1[i] != '\0' && str2[i] != '\0') && i < n)
+		i++;
+	return (str1[i] - str2[i]);
+}
+
+int	main(void)
+{
+	const char	str1[] = "abck";
+	const char	str2[] = "abce";
+
+	printf("%d\n", ft_strncmp(str1, str2, 7));
+}
+ft_strnstr.c/   0           0     0     644     564       `
+#include "libft.h"
+
+char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
+{
+	size_t	i;
+	size_t	j;
+
+	i = 0;
+	j = 0;
+	if (!needle || needle[0] == '\0')
+		return((char *)haystack);
+	while(haystack[i] != '\0' && i < n)
+	{
+		if (haystack[i] == needle[j])
+		{
+			while (haystack[i + j] == needle[j])
+			{
+				if (needle [j] == '\0')
+					return ((char *)haystack + i);
+				j++;
+			}
+			j = 0;
+		}
+		i++;
+	}
+	return (NULL);
+}
+
+int main(void)
+{
+	const char	str[] = "this is a string";
+	const char	s[] = "a string";
+
+	printf("%s\n", ft_strnstr(str, s, 4));
+}ft_strrchr.c/   0           0     0     644     1090      `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/29 11:01:31 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/29 11:04:59 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "libft.h"
+
+char	*ft_strrchr(const char *s, int c)
+{
+	size_t	i;
+
+	i = ft_strlen(s);
+	while (s[i] != (char *) c)
+	{
+		if(s[i] == '\0')
+			return (NULL);
+		i--;
+	}	
+	return ((char *)s + i);
+}
+ft_strtrim.c/   0           0     0     644     621       `
+#include "libft.h"
+
+int	check(char const *s, char c)
+{
+	int	i;
+
+	i = -1;
+	while (s[++i])
+	{
+		if (s[i] == c)
+			return (1);
+	}
+	return (0);
+}
+
+char	*ft_strtim(char const *s1, char const *set)
+{
+	char	*s;
+	size_t	i;
+	size_t	j;
+	size_t	k;
+
+	i = 0;
+	j = ft_strlen(s1);
+	k = 0;
+
+	while (s1[i] && check(set, s1[i]))
+		i++;
+	while (j > i && check(set, s1[j]))
+		j--;
+	s = malloc(sizeof(char *) * (j - i + 1));
+	if (!s)
+		return (NULL);
+	while (i <= j)
+	{
+		s[k] = s1[i];
+		k++;
+		i++;
+	}
+	s[k] = '\0';
+	return (s);
+
+}
+
+int main()
+{
+	char	str[] = "..this is a string.";
+	char	set[] = ".";
+	printf("%s\n", ft_strtim(str, set));
+}
+ft_substr.c/    0           0     0     644     327       `
+#include "libft.h"
+
+char	*ft_substr(char const *s, unsigned int start, size_t len)
+{
+	char	*sub;
+	sub = malloc(sizeof (char) * len + 1);
+	if (!sub)
+		return (NULL);
+	ft_strlcpy(sub, s + start, len +1);
+	sub[len] = '\0';
+	return (sub);
+}
+
+int	main(void)
+{
+	char	s[] = "this is a string";
+
+	printf("%s\n", ft_substr(s, 10, 3));
+}
+ft_tolower.c/   0           0     0     644     967       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/29 10:47:07 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/29 10:47:38 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_tolower(int c)
+{
+	if (c >= 65 && c <= 90)
+		c += 32;
+	return (c);
+}
+
+ft_toupper.c/   0           0     0     644     968       `
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/04/29 10:44:15 by daalhosa          #+#    #+#             */
+/*   Updated: 2024/04/29 10:46:03 by daalhosa         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+int	ft_toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
+}
+ft_itoa.c/      0           0     0     644     511       `
+#include "libft.h"
+
+size_t	digits(int n)
+{
+	size_t	i;
+
+	i = 0;
+	if (!n)
+		return(1);
+	while (n)
+	{
+		n /= 10;
+		i++;
+	}
+	return (i);
+}
+
+int	abs(int n)
+{
+	if (n < 0)
+		return (-n);
+	return (n);
+}
+
+char	*ft_itoa(int n)
+{
+	char	*str;
+	int		i;
+
+	i = digits(n);
+	str = malloc (sizeof(char *) * (i + 1));
+	if (n < 0)
+	{
+		i++;
+		str[0] = '-';
+	}
+	n = abs(n);
+	str[i] = '\0';
+	while (n)
+	{
+		str [i - 1] = (n % 10) + '0';
+		n /= 10;
+		i--;
+	}
+	return (str);
+}
+
+int	main(void)
+{
+	printf("%s\n", ft_itoa(-2147483647));
+}
+ft_strmapi.c/   0           0     0     644     479       `
+#include "libft.h"
+
+char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
+{
+	size_t	i;
+	size_t	j;
+	char	*str;
+
+	i = ft_strlen(s);
+	j = -1;
+	if (!s || !f)
+		return (NULL);
+	str = malloc(sizeof(char) * (i + 1));
+	if (!str)
+		return (NULL);
+	while (s[++j] != '\0')
+		str[j] = (*f)(j, s[j]);
+	str[j] = '\0';
+	return (str);
+}
+
+char	f(unsigned int i, char c)
+{
+	i = 32;
+	c -= i;
+	return (c);
+}
+
+int	main()
+{
+	char s[] = "this.is.a.string";
+	printf("%s\n", ft_strmapi(s, f));
+}

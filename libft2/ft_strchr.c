@@ -23,10 +23,3 @@ char	*ft_strchr(const char *s, int c)
 		return ((char *)s + i);
 	return (NULL);
 }
-
-int	main(void)
-{
-	char	str[] = "this is a string";
-	int	c = 'a';
-	printf("%s\n", ft_strchr(str, c));
-}

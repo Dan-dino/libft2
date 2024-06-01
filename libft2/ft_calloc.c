@@ -3,6 +3,7 @@
 void	*calloc(size_t num, size_t size)
 {
 	char	*s;
+
 	if (!num || !size)
 	{
 		num = 1;

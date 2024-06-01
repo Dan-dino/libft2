@@ -24,13 +24,3 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 		*d++ = *s++;
 	return (dst);
 }
-
-int	main(void)
-{
-	char	str[17] = "this is a string";
-	char	str2 [4];
-
-	ft_memcpy(str2, str, 3);
-	printf("%s\n", str2);
-}
-

@@ -26,17 +26,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 	}
 	else
 	{
-		while(len--)
+		while (len--)
 			d[len] = s[len];
 	}
-	return(dst);
-}
-
-int	main(void)
-{
-	char	str[] = "this is a string";
-	char	str2[] = "";
-
-	ft_memmove(str2, str, 17);
-	printf("%s\n", str2);
+	return (dst);
 }

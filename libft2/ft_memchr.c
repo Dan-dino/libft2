@@ -12,11 +12,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-int main()
-{
-	unsigned char str[] = "this is a string";
-	char *b;
-
-	b = ft_memchr(str, 'a', 17);
-	printf("%s\n", b);
-}

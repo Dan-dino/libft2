@@ -30,13 +30,3 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 	}
 	return (ft_strlen(src) + i);
 }
-
-int main(void)
-{
-	char str[] = "string";
-	char str2[] = "this is a ";
-
-	ft_strlcat(str2, str, 7);
-	printf("%s\n", str2);
-}
-
