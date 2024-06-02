@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:24:01 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/01 17:24:02 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/02 09:55:25 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	check(char const *s, char c)
 	return (0);
 }
 
-char	*ft_strtim(char const *s1, char const *set)
+char	*ft_strtrim(char const *s1, char const *set)
 {
 	char	*s;
 	size_t	i;
@@ -35,19 +35,17 @@ char	*ft_strtim(char const *s1, char const *set)
 	i = 0;
 	j = ft_strlen(s1);
 	k = 0;
+	if (!s1 || !set)
+		return (NULL);
 	while (s1[i] && check(set, s1[i]))
 		i++;
-	while (j > i && check(set, s1[j]))
+	while (j > i && check(set, s1[j - 1]))
 		j--;
-	s = malloc(sizeof(char *) * (j - i + 1));
+	s = malloc(sizeof(char) * (j - i + 1));
 	if (!s)
 		return (NULL);
-	while (i <= j)
-	{
-		s[k] = s1[i];
-		k++;
-		i++;
-	}
+	while (i < j)
+		s[k++] = s1[i++];
 	s[k] = '\0';
 	return (s);
 }

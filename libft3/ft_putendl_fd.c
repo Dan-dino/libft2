@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:23:01 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/01 17:37:10 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/02 10:04:32 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_putendl_fd(char *s, int fd)
 {
 	ft_putstr_fd(s, fd);
-	write(1, "\n", 1);
+	write(fd, "\n", 1);
 }

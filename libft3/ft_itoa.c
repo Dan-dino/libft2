@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:22:47 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/01 17:22:48 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/02 10:00:21 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,13 @@ char	*ft_itoa(int n)
 	int		i;
 
 	i = digits(n);
+	if (n == INT_MIN)
+		return (ft_strdup("-2147483648"));
+	if (n == 0)
+		return (ft_strdup("0"));
 	str = malloc (sizeof(char *) * (i + 1));
+	if (!str)
+		return (NULL);
 	if (n < 0)
 	{
 		i++;

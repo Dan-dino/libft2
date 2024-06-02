@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 16:01:35 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/01 17:31:57 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/02 10:37:03 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,13 @@ static size_t	wordcount(char const *s, char del)
 
 	count = 0;
 	i = 0;
-	while (s[i])
+	if (!s)
+		return (0);
+	while (s[i] != '\0')
 	{
-		while (s[i] && s[i] != del)
-		{
-			if (s[i + 1] == del || s[i + 1] == '\0')
-				count++;
-			i++;
-		}
-		if (s[i] == '\0')
-			break ;
+		if ((s[i] == del && s[i - 1] != del)
+			|| (s[i] != del && s[i + 1] == '\0'))
+			count++;
 		i++;
 	}
 	return (count);
@@ -63,7 +60,7 @@ char	**ft_split(char const *s, char c)
 	size_t	count;
 
 	count = wordcount(s, c);
-	str = malloc(sizeof (char *) * count + 1);
+	str = malloc(sizeof(char *) * count + 1);
 	if (!str)
 		return (NULL);
 	return (words(str, s, c));
