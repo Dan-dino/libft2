@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/27 15:44:39 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/04/27 15:45:55 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/02 12:21:10 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ void	*ft_memmove(void *dst, const void *src, size_t len)
 
 	d = (char *)dst;
 	s = (char *)src;
+	if (d == s)
+		return (dst);
 	if (d < s)
 	{
 		while (len--)

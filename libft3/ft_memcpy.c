@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/04/24 09:51:17 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/02 11:28:58 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/02 12:18:27 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	*ft_memcpy(void *dst, const void *src, size_t n)
 	char	*d;
 	char	*s;
 
-	if (!dst && !!src)
+	if (!dst && !src)
 		return (NULL);
 	d = (char *)dst;
 	s = (char *)src;
