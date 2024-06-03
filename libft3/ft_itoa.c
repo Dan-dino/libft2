@@ -6,15 +6,15 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:22:47 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/02 10:00:21 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:44:46 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	digits(int n)
+int	digits(int n)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
 	if (!n)
@@ -44,14 +44,13 @@ char	*ft_itoa(int n)
 		return (ft_strdup("-2147483648"));
 	if (n == 0)
 		return (ft_strdup("0"));
-	str = malloc (sizeof(char *) * (i + 1));
+	if (n < 0)
+		i++;
+	str = malloc (sizeof(char) * (i + 1));
 	if (!str)
 		return (NULL);
 	if (n < 0)
-	{
-		i++;
 		str[0] = '-';
-	}
 	n = abs(n);
 	str[i] = '\0';
 	while (n)

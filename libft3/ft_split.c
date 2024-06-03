@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 16:01:35 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/02 10:37:03 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/03 13:28:35 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ static size_t	wordcount(char const *s, char del)
 
 	count = 0;
 	i = 0;
-	if (!s)
+	if (!*s)
 		return (0);
+	while (s[i] == del)
+		i++;
 	while (s[i] != '\0')
 	{
 		if ((s[i] == del && s[i - 1] != del)
@@ -31,6 +33,14 @@ static size_t	wordcount(char const *s, char del)
 	return (count);
 }
 
+char	**freedom(char **arr, size_t k)
+{
+	while (k--)
+		free (arr[k]);
+	free (arr);
+	return (NULL);
+}
+
 char	**words(char **str, char const *s, char del)
 {
 	size_t	i;
@@ -38,17 +48,20 @@ char	**words(char **str, char const *s, char del)
 	size_t	k;
 
 	i = 0;
-	j = 0;
 	k = 0;
 	while (s[i])
 	{
-		while (s[i] == del)
+		while (s[i] && s[i] == del)
 			i++;
 		j = i;
 		while (s[i] != del && s[i] != '\0')
 			i++;
 		if (j < i)
+		{
 			str[k++] = ft_substr(s, j, i - j);
+			if (!str[k - 1])
+				return (freedom(str, k));
+		}
 	}
 	str[k] = NULL;
 	return (str);
@@ -60,7 +73,7 @@ char	**ft_split(char const *s, char c)
 	size_t	count;
 
 	count = wordcount(s, c);
-	str = malloc(sizeof(char *) * count + 1);
+	str = malloc(sizeof(char *) * (count + 1));
 	if (!str)
 		return (NULL);
 	return (words(str, s, c));

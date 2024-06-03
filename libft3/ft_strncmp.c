@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:23:56 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/01 17:23:57 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/03 11:07:47 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	if (n == 0)
 		return (0);
 	while ((str1[i] == str2[i]) && (str1[i] != '\0'
-			&& str2[i] != '\0') && i < n)
+			&& str2[i] != '\0') && i < n - 1)
 		i++;
 	return (str1[i] - str2[i]);
 }

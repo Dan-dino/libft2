@@ -6,7 +6,7 @@
 /*   By: daalhosa <daalhosa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/06/01 17:24:02 by daalhosa          #+#    #+#             */
-/*   Updated: 2024/06/02 10:17:48 by daalhosa         ###   ########.fr       */
+/*   Updated: 2024/06/03 12:23:44 by daalhosa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	}
 	else
 	{
-		sub = malloc(sizeof(char) * len + 1);
+		sub = malloc(sizeof(char) * (len + 1));
 		if (!sub)
 			return (NULL);
 		ft_strlcpy(sub, s + start, len + 1);
